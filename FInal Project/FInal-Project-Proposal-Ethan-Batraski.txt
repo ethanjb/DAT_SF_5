@@ -1,0 +1,33 @@
+Final Project Goal:
+For my final project, my goal is to create a forecasting model to predict the movement of a stock using machine learning algorithms to predict movement using correlations between a stocks directional momentum and volatility of it's equity derivatives (options, futures) activity. 
+
+Hypothesis:
+My hypothesis is that there exists a lagging indicator of a stocks directional momentum based on it's options/future activity at all strike prices;  large institutions write and cover calls/puts which can be interpreted as signals of directional bets. Depending on the number of contracts bought & sold at a given strike price and the activity deltas on a day-to-day basis at each strike price on calls/puts, this can indicate where the institutional market believes the direction of a stock is heading, and therefore plays that hand across their portfolio beyond derivatives. By applying a blended model using features from both stocks technical indicators and the derivatives activity, my hypothesis is this model can outperform the S&P 500 index YoY performance. 
+
+Data:
+There are a number of data sources to pull down historical data about stocks and derivatives: yahoo finance, investopedia research, and to Nasdaq which offers 10 years of daily historical stock prices/volume (open, high, low, close, volume). I will likely limit the dataset to stocks from specific industries, segments, market caps, and volume to try to normalize their technical differences. 
+
+Calculations:
+TA-Lib is widely used by trading software developers requiring to perform technical analysis of financial market data (http://ta-lib.org/), which has a python wrapper and makes 150+ indicators available as functions (http://mrjbq7.github.io/ta-lib/).  
+
+Models:
+Supervised, continuous , regression models. This will require (4) components: (2) for feature extraction, (1) for the actual prediction model, and (1) to validate the accuracy of the model against historical or current data.  
+
+Stock Feature Extraction: Model to analyze a number of technical features about a particular stock: volume, open/close price, daily volatility, moving averages  convergence and divergences, stochastic oscillators,  relative strength index, additional overbought/oversold indicators, and more. This may include a forward feature selection algorithm to determine the best features to use. 
+
+Option Feature Extraction: Model to analyze the correlations between the activity on a stocks derivatives (options & futures) at the active strike prices & expiration blocks and the correlations to the movement of the stock, using feature inputs such as put/call ratio, implied volatility, and options volume. 
+
+True Model: Model to predict the movement of a stock (whether it will continue to or begin to increase, go flat, or trend downward) based on the technical features and derivative activity. 
+
+Validation: Model to simulate the prediction models results against actual market conditions to determine ROI, both historical data of a new stock not originally included in the training set, or as a daily predictor against already trained stocks. 
+
+Reason For This Project:
+I spent part of a 6 months sabbatical getting my series 7, learning to day and swing trade. I focused my time on technical indicators, tape reading, and option trading. I always saw a soft correlation between momentum of certain option strike prices and the technical indicators of a stock, but never had the tools to develop the models to prove/dis-prove the relationships. 
+
+Ideas for feature inputs
+	•	momentum and directionality of domestic and international indices
+	•	add all stock features and technical indicators forward feature selection algorithm to select the features that contribute most to the accuracy of prediction using different machine learning
+	•	multiclass classifier to determine downward, flat, upward based on precision, recall, and the f-measure. 
+	•	investigate more into time series, auto regressive models
+
+ 
