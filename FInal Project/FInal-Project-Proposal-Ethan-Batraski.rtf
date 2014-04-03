@@ -1,0 +1,123 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+{\fonttbl\f0\fnil\fcharset0 Calibri;\f1\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue233;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720
+
+\f0\b\fs28 \cf0 Final Project Goal:
+\f1\b0\fs24 \
+\pard\pardeftab720
+
+\f0\fs28 \cf0 For my final project, my goal is to create a forecasting model to predict the movement of a stock using machine learning algorithms to predict movement using correlations between a stocks directional momentum and volatility of it's equity derivatives (options, futures) activity.\'a0
+\f1\fs24 \
+
+\f0\fs28 \
+\pard\pardeftab720
+
+\b \cf0 Hypothesis:
+\f1\b0\fs24 \
+\pard\pardeftab720
+
+\f0\fs28 \cf0 My hypothesis is that there exists a lagging indicator of a stocks directional momentum based on it's options/future activity at all strike prices; \'a0large institutions write and cover calls/puts which can be interpreted as signals of directional bets. Depending on the number of contracts bought & sold at a given strike price and the activity deltas on a day-to-day basis at each strike price on calls/puts, this can indicate where the institutional market believes the direction of a stock is heading, and therefore plays that hand across their portfolio beyond derivatives. By applying a blended model using features from both stocks technical indicators and the derivatives activity, my hypothesis is this model can outperform the S&P 500 index YoY performance.\'a0
+\f1\fs24 \
+
+\f0\fs28 \
+\pard\pardeftab720
+
+\b \cf0 Data:
+\f1\b0\fs24 \
+\pard\pardeftab720
+
+\f0\fs28 \cf0 There are a number of data sources to pull down historical data about stocks and derivatives: yahoo finance, investopedia research, and to Nasdaq which offers 10 years of daily historical stock prices/volume (open, high, low, close, volume). I will likely limit the dataset to stocks from specific industries, segments, market caps, and volume to try to normalize their technical differences.\'a0
+\f1\fs24 \
+
+\f0\fs28 \
+\pard\pardeftab720
+
+\b \cf0 Calculations:
+\f1\b0\fs24 \
+\pard\pardeftab720
+
+\f0\fs28 \cf0 TA-Lib is widely used by trading software developers requiring to perform technical analysis of financial market data ({\field{\*\fldinst{HYPERLINK "http://ta-lib.org/"}}{\fldrslt \cf2 \ul \ulc2 http://ta-lib.org/}}), which has a python wrapper and makes 150+ indicators available as functions ({\field{\*\fldinst{HYPERLINK "http://mrjbq7.github.io/ta-lib/"}}{\fldrslt 
+\f1\fs24 \cf2 \ul \ulc2 http://mrjbq7.github.io/ta-lib/}}
+\f1\fs24 ).\'a0
+\f0\fs28 \'a0
+\f1\fs24 \
+\
+\pard\pardeftab720
+
+\f0\b\fs28 \cf0 Models:
+\f1\b0\fs24 \
+\pard\pardeftab720
+
+\f0\fs28 \cf0 Supervised, continuous , regression models. This will require (4) components: (2) for feature extraction, (1) for the actual prediction model, and (1) to validate the accuracy of the model against historical or current data.\'a0\'a0
+\f1\fs24 \
+
+\f0\fs28 \
+\pard\pardeftab720
+
+\b \cf0 Stock Feature Extraction:
+\b0 \'a0Model to analyze a number of technical features about a particular stock: volume, open/close price, daily volatility, moving averages \'a0convergence and divergences, stochastic oscillators, \'a0relative strength index, additional overbought/oversold indicators, and more. This may include a forward feature selection algorithm to determine the best features to use.\'a0
+\f1\fs24 \
+\pard\pardeftab720
+
+\f0\fs28 \cf0 \
+\pard\pardeftab720
+
+\b \cf0 Option Feature Extraction:\'a0
+\b0 Model to analyze the correlations between the activity on a stocks derivatives (options & futures) at the active strike prices & expiration blocks and the correlations to the movement of the stock, using feature inputs such as put/call ratio, implied volatility, and options\'a0volume.\'a0
+\f1\fs24 \
+\pard\pardeftab720
+
+\f0\fs28 \cf0 \
+\pard\pardeftab720
+
+\b \cf0 True Model:\'a0
+\b0 Model to predict the movement of a stock (whether it will continue to or begin to increase, go flat, or trend downward) based on the technical features and derivative activity.\'a0
+\f1\fs24 \
+\pard\pardeftab720
+
+\f0\fs28 \cf0 \
+\pard\pardeftab720
+
+\b \cf0 Validation:\'a0
+\b0 Model to simulate the prediction models results against actual market conditions to determine ROI, both historical data of a new stock not originally included in the training set, or as a daily predictor against already trained stocks.\'a0
+\f1\fs24 \
+\pard\pardeftab720
+
+\f0\fs28 \cf0 \
+\pard\pardeftab720
+
+\b \cf0 Reason For This Project:
+\f1\b0\fs24 \
+\pard\pardeftab720
+
+\f0\fs28 \cf0 I spent part of a 6 months sabbatical getting my series 7, learning to day and swing trade. I focused my time on technical indicators, tape reading, and option trading. I always saw a soft correlation between momentum of certain option strike prices and the technical indicators of a stock, but never had the tools to develop the models to prove/dis-prove the relationships.\'a0
+\f1\fs24 \
+\
+\pard\pardeftab720
+
+\f0\b\fs28 \cf0 Ideas for feature inputs
+\f1\b0\fs24 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720
+\ls1\ilvl0
+\f0\fs28 \cf0 {\listtext	\'95	}momentum and directionality of domestic and international indices
+\f1\fs24 \
+\ls1\ilvl0
+\f0\fs28 {\listtext	\'95	}add all stock features and technical indicators\'a0forward\'a0feature selection algorithm to select the features that contribute\'a0most to the accuracy of prediction using different machine learning
+\f1\fs24 \
+\ls1\ilvl0
+\f0\fs28 {\listtext	\'95	}multiclass classifier to determine downward, flat, upward based on precision, recall, and the f-measure.\'a0
+\f1\fs24 \
+\ls1\ilvl0
+\f0\fs28 {\listtext	\'95	}investigate more into time series, auto regressive models
+\f1\fs24 \
+\pard\pardeftab720
+
+\f0\fs28 \cf0 \
+\'a0
+\f1\fs24 \
+}
