@@ -1,6 +1,6 @@
 # imports
 import matplotlib
-matplotlib.use("AGG")
+# matplotlib.use("AGG")
 from matplotlib import pyplot as pl
 import numpy as np
 from sklearn import svm, datasets
@@ -26,24 +26,24 @@ output_file = 'svm_iris.png'
 # <begin stuff for part 2>
 
 # command line args: python file, step size, reg. param, output file
-# import sys
-# args = str(sys.argv)
-# print args
+import sys
+args = str(sys.argv)
+print args
 
-# if sys.argv[1]:
-#     h = float(sys.argv[1])
-# else:
-#     h = .02
+if sys.argv[1]:
+    h = float(sys.argv[1])
+else:
+    h = .02
 
-# if sys.argv[2]:
-#     C = float(sys.argv[2])
-# else:
-#     C = 1.0
+if sys.argv[2]:
+    C = float(sys.argv[2])
+else:
+    C = 1.0
 
-# if sys.argv[3]:
-#     output_file = str(sys.argv[3])
-# else:
-#     output_file = 'svm_iris.png'
+if sys.argv[3]:
+    output_file = str(sys.argv[3])
+else:
+    output_file = 'svm_iris.png'
 
 # note: in production code you would probably want to add some type / error
 # checking of the passed arguments
@@ -101,5 +101,5 @@ for i, clf in enumerate((svc, rbf_svc, poly_svc, lin_svc)):
 
 
 # save the output graphs as a .png
-# pl.savefig("svm_iris.png")
+pl.savefig("svm_iris.png")
 pl.savefig(output_file)
